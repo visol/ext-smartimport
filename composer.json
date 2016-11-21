@@ -1,0 +1,11 @@
+{
+    "name": "sinso/smartimport",
+    "type": "typo3-cms-extension",
+    "authors": [
+        {
+            "name": "Jonas Renggli",
+            "email": "jonas.renggli@swisscom.com"
+        }
+    ],
+    "require": {}
+}

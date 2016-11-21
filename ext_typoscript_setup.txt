@@ -1,0 +1,11 @@
+
+# ==============================================
+# Persistence object mapping configuration
+# ==============================================
+config.tx_extbase.persistence.classes {
+	Sinso\Smartimport\Domain\Model\FileReference {
+		mapping {
+			tableName = sys_file_reference
+		}
+	}
+}

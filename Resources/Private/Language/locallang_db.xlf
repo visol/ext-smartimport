@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-05-18T11:40:22Z" product-name="smartimport">
+		<header/>
+		<body>
+			<!-- Shop Model -->
+			<trans-unit id="tx_smartimport_domain_model_shopitem.title">
+				<source>Shop Item</source>
+			</trans-unit>
+			<trans-unit id="tx_smartimport_domain_model_shopitem.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_smartimport_domain_model_shopitem.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_smartimport_domain_model_shopitem.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_smartimport_domain_model_shopitem.url">
+				<source>URL</source>
+			</trans-unit>
+			<trans-unit id="tx_smartimport_domain_model_shopitem.category">
+				<source>Category</source>
+			</trans-unit>
+
+			<!-- MappingInstruction Model -->
+			<trans-unit id="tx_smartimport_domain_model_mappinginstruction.title">
+				<source>Shop Mapping Instruction</source>
+			</trans-unit>
+			<trans-unit id="tx_smartimport_domain_model_mappinginstruction.tab_item">
+				<source>Tab item</source>
+			</trans-unit>
+			<trans-unit id="tx_smartimport_domain_model_mappinginstruction.tab_item.item1">
+				<source>Gipfel</source>
+			</trans-unit>
+			<trans-unit id="tx_smartimport_domain_model_mappinginstruction.tab_item.item2">
+				<source>Orte</source>
+			</trans-unit>
+			<trans-unit id="tx_smartimport_domain_model_mappinginstruction.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_smartimport_domain_model_mappinginstruction.source_with_guide">
+				<source>Source</source>
+			</trans-unit>
+			<trans-unit id="tx_smartimport_domain_model_mappinginstruction.entity">
+				<source>Entity</source>
+			</trans-unit>
+			<trans-unit id="tx_smartimport_domain_model_mappinginstruction.mapping_fields">
+				<source>Mapping Fields</source>
+			</trans-unit>
+			<trans-unit id="tx_smartimport_domain_model_mappinginstruction.storage">
+				<source>Storage</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
