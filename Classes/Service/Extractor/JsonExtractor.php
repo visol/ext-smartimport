@@ -30,7 +30,25 @@ namespace Sinso\Smartimport\Service\Extractor;
 class JsonExtractor extends AbstractExtractor
 {
 
+    protected $content = NULL;
+
     protected $source;
+
+    /**
+     * @return mixed
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * @param mixed $content
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+    }
 
     /**
      * @return mixed
@@ -50,7 +68,12 @@ class JsonExtractor extends AbstractExtractor
 
     function extract()
     {
-        $rawData = file_get_contents($this->source);
+        if (is_null($this->content)) {
+            $rawData = file_get_contents($this->source);
+        } else {
+            $rawData = $this->content;
+        }
+
         $jsonData = json_decode($rawData, true);
 
         if (!is_array($jsonData)) {
