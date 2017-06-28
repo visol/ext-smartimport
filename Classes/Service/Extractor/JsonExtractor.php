@@ -1,5 +1,6 @@
 <?php
 namespace Sinso\Smartimport\Service\Extractor;
+use Sinso\Smartimport\Exception\EmptyContentException;
 
 /***************************************************************
  *
@@ -77,7 +78,7 @@ class JsonExtractor extends AbstractExtractor
         $jsonData = json_decode($rawData, true);
 
         if (!is_array($jsonData)) {
-            throw new \Exception('no json in response');
+            throw new EmptyContentException('No JSON in response', 1498567170);
         }
 
         return $jsonData;
