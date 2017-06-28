@@ -126,11 +126,11 @@ class ResourceImportService
         }
 
         // BUGFIX: storing count of resources doesn't work
-        $datamap[$tablename][$entity->getUid()] = array(
-            $fieldname => count($datamap['sys_file_reference'])
-        );
+        // $datamap[$tablename][$entity->getUid()] = array(
+        //     $fieldname => count($datamap['sys_file_reference'])
+        // );
         // WORKAROUND: manual update in database
-        $GLOBALS['TYPO3_DB']->exec_UPDATEquery($tablename, 'uid = ' . $entity->getUid(), $datamap[$tablename][$entity->getUid()]);
+        $GLOBALS['TYPO3_DB']->exec_UPDATEquery($tablename, 'uid = ' . $entity->getUid(), [$fieldname => count($datamap['sys_file_reference'])]);
 
         /** @var \TYPO3\CMS\Core\DataHandling\DataHandler $dataHandler */
         $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\DataHandling\DataHandler');
