@@ -26,6 +26,7 @@ namespace Sinso\Smartimport\Service;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Sinso\Smartimport\Exception\EmptyContentException;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
@@ -58,11 +59,11 @@ class ResourceImportService
      */
     protected $overwriteExistingFiles = false;
 
-
     /**
      * Import a single resource, download the file and store it locally
      *
      * @param \Sinso\Smartimport\Domain\Model\Resource $resource
+     * @throws EmptyContentException
      */
     public function importResource(\Sinso\Smartimport\Domain\Model\Resource $resource)
     {
@@ -71,16 +72,14 @@ class ResourceImportService
         if ($this->overwriteExistingFiles || !file_exists($resourcePathAndFilename)) {
             if (!$resource->getSourceData()) {
                 if (!$resource->getSource()) {
-                    // TODO: create nice exceptions
-                    die('no source set');
+                    throw new EmptyContentException('No source or sourceData set', 1551781475);
                 }
 
                 $resource->setSourceData(GeneralUtility::getUrl($resource->getSource()));
             }
 
             if (!$resource->getSourceData()) {
-                // TODO: create nice exceptions
-                die('no source data found');
+                throw new EmptyContentException('No sourceData set', 1551781549);
             }
 
             file_put_contents($resourcePathAndFilename, $resource->getSourceData());
