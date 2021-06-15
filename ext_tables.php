@@ -3,4 +3,4 @@ if (!defined('TYPO3_MODE')) {
 	die('Access denied.');
 }
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Swisscom Import Framework');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('smartimport', 'Configuration/TypoScript', 'Swisscom Import Framework');
