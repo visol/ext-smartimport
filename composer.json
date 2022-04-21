@@ -1,11 +1,19 @@
 {
-    "name": "sinso/smartimport",
-    "type": "typo3-cms-extension",
-    "authors": [
-        {
-            "name": "Jonas Renggli",
-            "email": "jonas.renggli@swisscom.com"
-        }
-    ],
-    "require": {}
+  "name": "sinso/smartimport",
+  "description": "Swisscom Import Framework",
+  "type": "typo3-cms-extension",
+  "license": "GPL-2.0+",
+  "require": {
+    "typo3/cms-core": "^7.4.0 || ^8.7 || ^10.4 || ^11"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sinso\\Smartimport\\": "Classes"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "smartimport"
+    }
+  }
 }
