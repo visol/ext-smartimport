@@ -21,28 +21,20 @@ use TYPO3\CMS\Extbase\DomainObject\DomainObjectInterface;
 use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\ColumnMap;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper;
 
 /**
  * Provides services to translate domain objects
  */
-class DomainObjectTranslationService implements SingletonInterface {
-
-    /**
-     * @var \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper
-     * @inject
-     */
-    protected $dataMapper;
+class DomainObjectTranslationService implements SingletonInterface
+{
+    protected \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper $dataMapper;
 
     /**
      * Translates a domain object
-     *
-     * @param DomainObjectInterface $origin
-     * @param DomainObjectInterface $translation
-     * @param int $language
-     * @throws \Exception
-     * @return void
      */
-    public function translate(DomainObjectInterface $origin, DomainObjectInterface $translation, $language) {
+    public function translate(DomainObjectInterface $origin, DomainObjectInterface $translation, int $language)
+    {
         if (get_class($origin) !== get_class($translation)) {
             throw new \Exception('Origin and translation must be the same type.', 1432499926);
         }
@@ -54,8 +46,7 @@ class DomainObjectTranslationService implements SingletonInterface {
         }
 
         $propertyName = GeneralUtility::underscoredToLowerCamelCase($dataMap->getTranslationOriginColumnName());
-
-        if ($translation->_setProperty($propertyName, $origin) === FALSE) {
+        if ($translation->_setProperty($propertyName, $origin) === false) {
             $columnMap = $dataMap->getColumnMap($propertyName);
             $columnMap->setTypeOfRelation(ColumnMap::RELATION_HAS_ONE);
             $columnMap->setType($dataMap->getClassName());
@@ -65,5 +56,10 @@ class DomainObjectTranslationService implements SingletonInterface {
         }
 
         $translation->_setProperty('_languageUid', $language);
+    }
+
+    public function injectDataMapper(DataMapper $dataMapper): void
+    {
+        $this->dataMapper = $dataMapper;
     }
 }
