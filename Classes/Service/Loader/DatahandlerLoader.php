@@ -41,13 +41,9 @@ class DatahandlerLoader extends AbstractLoader
 
     public function load($transformedData)
     {
-
-        foreach ($transformedData as $item) {
-
-        }
     }
 
-    public function process() {
+    public function process(): void {
         /** @var \TYPO3\CMS\Core\DataHandling\DataHandler $dataHandler */
         $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\DataHandling\DataHandler');
         $dataHandler->start($this->datamap, array());
@@ -55,7 +51,7 @@ class DatahandlerLoader extends AbstractLoader
 
         if ($dataHandler->errorLog) {
             var_dump($dataHandler->errorLog);
-            throw new \Exception('error while processing datamap');
+            throw new \Exception('error while processing datamap', 4318360878);
         }
 
         unset($dataHandler);
@@ -66,7 +62,7 @@ class DatahandlerLoader extends AbstractLoader
         $dataHandler->process_cmdmap();
 
         if ($dataHandler->errorLog) {
-            throw new \Exception('error while processing cmdmap');
+            throw new \Exception('error while processing cmdmap', 7879108206);
         }
 
     }

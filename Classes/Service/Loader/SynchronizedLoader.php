@@ -47,14 +47,12 @@ class SynchronizedLoader extends DatahandlerLoader
 
     public function load($transformedData)
     {
-        foreach ($transformedData as $item) {
-        }
     }
 
     protected function sync(DomainObjectInterface $domainObject, $uniqueIdentifier) {
         $tables = array_keys($this->datamap);
         foreach ($tables as $table) {
-            foreach ($this->datamap[$table] as $id => $fieldArray) {
+            foreach ($this->datamap[$table] as $fieldArray) {
                 if (!is_array($fieldArray)) {
                     continue;
                 }

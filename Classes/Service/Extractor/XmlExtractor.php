@@ -43,7 +43,7 @@ class XmlExtractor extends AbstractExtractor
     /**
      * @param mixed $source
      */
-    public function setSource($source)
+    public function setSource($source): void
     {
         $this->source = $source;
     }
@@ -55,7 +55,7 @@ class XmlExtractor extends AbstractExtractor
         $xmlObject = simplexml_load_string($rawData);
 
         if (!is_object($xmlObject)) {
-            throw new \Exception('no xml in response');
+            throw new \Exception('no xml in response', 8369019978);
         }
 
         return $xmlObject;

@@ -29,11 +29,15 @@ use TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper;
 class DomainObjectTranslationService implements SingletonInterface
 {
     protected \TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper $dataMapper;
+    public function __construct(\TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper $dataMapper)
+    {
+        $this->dataMapper = $dataMapper;
+    }
 
     /**
      * Translates a domain object
      */
-    public function translate(DomainObjectInterface $origin, DomainObjectInterface $translation, int $language)
+    public function translate(DomainObjectInterface $origin, DomainObjectInterface $translation, int $language): void
     {
         if (get_class($origin) !== get_class($translation)) {
             throw new \Exception('Origin and translation must be the same type.', 1432499926);
@@ -56,10 +60,5 @@ class DomainObjectTranslationService implements SingletonInterface
         }
 
         $translation->_setProperty('_languageUid', $language);
-    }
-
-    public function injectDataMapper(DataMapper $dataMapper): void
-    {
-        $this->dataMapper = $dataMapper;
     }
 }
