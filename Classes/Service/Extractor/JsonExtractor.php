@@ -31,7 +31,7 @@ use Sinso\Smartimport\Exception\EmptyContentException;
 class JsonExtractor extends AbstractExtractor
 {
 
-    protected $content = NULL;
+    protected $content;
 
     protected $source;
 
@@ -46,7 +46,7 @@ class JsonExtractor extends AbstractExtractor
     /**
      * @param mixed $content
      */
-    public function setContent($content)
+    public function setContent($content): void
     {
         $this->content = $content;
     }
@@ -62,18 +62,14 @@ class JsonExtractor extends AbstractExtractor
     /**
      * @param mixed $source
      */
-    public function setSource($source)
+    public function setSource($source): void
     {
         $this->source = $source;
     }
 
     function extract()
     {
-        if (is_null($this->content)) {
-            $rawData = file_get_contents($this->source);
-        } else {
-            $rawData = $this->content;
-        }
+        $rawData = is_null($this->content) ? file_get_contents($this->source) : $this->content;
 
         $jsonData = json_decode($rawData, true);
 

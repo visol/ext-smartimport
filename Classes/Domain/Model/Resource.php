@@ -84,7 +84,7 @@ class Resource extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * @param string $source
 	 */
-	public function setSource($source)
+	public function setSource($source): void
 	{
 		$this->source = $source;
 	}
@@ -100,7 +100,7 @@ class Resource extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * @param string $sourceData
 	 */
-	public function setSourceData($sourceData)
+	public function setSourceData($sourceData): void
 	{
 		$this->sourceData = $sourceData;
 	}
@@ -116,7 +116,7 @@ class Resource extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * @param string $filename
 	 */
-	public function setFilename($filename)
+	public function setFilename($filename): void
 	{
 		$this->filename = $filename;
 	}
@@ -132,7 +132,7 @@ class Resource extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * @param \TYPO3\CMS\Core\Resource\File $fileObject
 	 */
-	public function setFileObject($fileObject)
+	public function setFileObject($fileObject): void
 	{
 		$this->fileObject = $fileObject;
 	}
@@ -148,7 +148,7 @@ class Resource extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * @param string $title
 	 */
-	public function setTitle($title)
+	public function setTitle($title): void
 	{
 		$this->title = $title;
 	}
@@ -164,7 +164,7 @@ class Resource extends \TYPO3\CMS\Extbase\DomainObject\AbstractValueObject {
 	/**
 	 * @param string $description
 	 */
-	public function setDescription($description)
+	public function setDescription($description): void
 	{
 		$this->description = $description;
 	}

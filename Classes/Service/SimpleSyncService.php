@@ -30,11 +30,17 @@ namespace Sinso\Smartimport\Service;
 class SimpleSyncService extends AbstractSyncService
 {
 
+    public $defaultLanguage;
+    public $shopItemRepository;
+    public $persistenceManager;
+    public $languages;
+    public $imageFolder;
+    public $resourceImportService;
     protected $model;
 
     protected $tablename;
 
-    public function sync($data) {
+    public function sync($data): void {
         foreach ($itemInAllLanguages as $language => $item) {
             $shopItem = new ShopItem();
             $shopItem->setName($item['name']);
@@ -57,8 +63,10 @@ class SimpleSyncService extends AbstractSyncService
             }
 
             $resourcesToImport = array();
-
-            if (!is_array($productInformationFromWebScraper) || !is_array($productInformationFromWebScraper['images'])) {
+            if (!is_array($productInformationFromWebScraper)) {
+                continue;
+            }
+            if (!is_array($productInformationFromWebScraper['images'])) {
                 continue;
             }
 

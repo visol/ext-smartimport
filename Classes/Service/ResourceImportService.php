@@ -62,10 +62,9 @@ class ResourceImportService
     /**
      * Import a single resource, download the file and store it locally
      *
-     * @param \Sinso\Smartimport\Domain\Model\Resource $resource
      * @throws EmptyContentException
      */
-    public function importResource(\Sinso\Smartimport\Domain\Model\Resource $resource)
+    public function importResource(\Sinso\Smartimport\Domain\Model\Resource $resource): void
     {
         $resourcePathAndFilename = GeneralUtility::getFileAbsFileName($resource->getFilename());
 
@@ -85,7 +84,7 @@ class ResourceImportService
             file_put_contents($resourcePathAndFilename, $resource->getSourceData());
         }
 
-        $fileObject = \TYPO3\CMS\Core\Resource\ResourceFactory::getInstance()->retrieveFileOrFolderObject($resourcePathAndFilename);
+        $fileObject = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Resource\ResourceFactory::class)->retrieveFileOrFolderObject($resourcePathAndFilename);
         $resource->setFileObject($fileObject);
     }
 
@@ -98,11 +97,10 @@ class ResourceImportService
      * TODO: Remove deleted/missing resources from entity
      *
      * @param array<\Sinso\Smartimport\Domain\Model\Resource> $resources
-     * @param \TYPO3\CMS\Extbase\DomainObject\AbstractEntity $entity
      * @param string $tablename
      * @param string $fieldname
      */
-    public function importResourcesToEntity(Array $resources, \TYPO3\CMS\Extbase\DomainObject\AbstractEntity $entity, $tablename, $fieldname) {
+    public function importResourcesToEntity(Array $resources, \TYPO3\CMS\Extbase\DomainObject\AbstractEntity $entity, $tablename, $fieldname): void {
         $datamap = array();
         foreach ($resources as $resource) {
             /** @var \Sinso\Smartimport\Domain\Model\Resource $resource */
@@ -120,7 +118,7 @@ class ResourceImportService
             );
         }
 
-        if (!$datamap) {
+        if ($datamap === []) {
             return;
         }
 
@@ -154,7 +152,7 @@ class ResourceImportService
     /**
      * @param boolean $overwriteExistingFiles
      */
-    public function setOverwriteExistingFiles($overwriteExistingFiles)
+    public function setOverwriteExistingFiles($overwriteExistingFiles): void
     {
         $this->overwriteExistingFiles = $overwriteExistingFiles;
     }

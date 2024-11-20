@@ -79,7 +79,7 @@ class ImportedEntity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @param string $sourceUniqueIdentifier
 	 */
-	public function setSourceUniqueIdentifier($sourceUniqueIdentifier)
+	public function setSourceUniqueIdentifier($sourceUniqueIdentifier): void
 	{
 		$this->sourceUniqueIdentifier = $sourceUniqueIdentifier;
 	}
@@ -95,7 +95,7 @@ class ImportedEntity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @param array $sourceFieldHashes
 	 */
-	public function setSourceFieldHashes($sourceFieldHashes)
+	public function setSourceFieldHashes($sourceFieldHashes): void
 	{
 		$this->sourceFieldHashes = $sourceFieldHashes;
 	}
@@ -111,7 +111,7 @@ class ImportedEntity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @param int $internalUid
 	 */
-	public function setInternalUid($internalUid)
+	public function setInternalUid($internalUid): void
 	{
 		$this->internalUid = $internalUid;
 	}
@@ -127,7 +127,7 @@ class ImportedEntity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @param pid $internalPid
 	 */
-	public function setInternalPid($internalPid)
+	public function setInternalPid($internalPid): void
 	{
 		$this->internalPid = $internalPid;
 	}
@@ -143,7 +143,7 @@ class ImportedEntity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @param string $internalEntityClassName
 	 */
-	public function setInternalEntityClassName($internalEntityClassname)
+	public function setInternalEntityClassName($internalEntityClassname): void
 	{
 		$this->internalEntityClassname = $internalEntityClassname;
 	}
@@ -159,7 +159,7 @@ class ImportedEntity extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @param int $language
 	 */
-	public function setInternalLanguage($internalLanguage)
+	public function setInternalLanguage($internalLanguage): void
 	{
 		$this->internalLanguage = $internalLanguage;
 	}

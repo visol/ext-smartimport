@@ -49,7 +49,7 @@ abstract class AbstractTransformer
         */
 
         if (!in_array($field, $this->sanitizedFields)) {
-            $value = $this->sanitizeValue($value);
+            return $this->sanitizeValue($value);
         }
 
         return $value;

@@ -30,7 +30,7 @@ namespace Sinso\Smartimport\Service;
 abstract class AbstractSyncService
 {
 
-    public function run() {
+    public function run(): void {
         $this->fetch();
         $this->transform();
         $this->store();
